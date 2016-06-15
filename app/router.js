@@ -8,7 +8,12 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('friends', function() {
     this.route('new');
-    this.route('show', { path: ':friend_id' });
+    this.route('show', { path: ':friend_id' }, function() {
+      this.route('loans', { resetNamespace: true }, function() {
+        this.route('new');
+      });
+    });
+
     this.route('edit', { path: ':friend_id/edit' });
   });
 
@@ -17,6 +22,7 @@ Router.map(function() {
     this.route('show', { path: ':article_id' });
     this.route('edit', { path: ':article_id/edit' });
   });
+
 });
 
 export default Router;

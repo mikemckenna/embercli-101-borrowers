@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
     },
     cancel() {
       console.log('+--- cancel action called in friends new controller');
-      this.cancel();
+      this.transitionToRoute('friends.index');
     }
   }
 });
