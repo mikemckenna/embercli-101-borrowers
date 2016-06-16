@@ -1,15 +1,19 @@
-<div class="clearfix flex p3 h2">
-  <div class="">
+<div class="friend-profile">
+  <div class="friend-info full">
     <img src="http://www.fillmurray.com/200/200">
-    <p class="">{{model.fullName}}</p>
-    <p class="">{{model.email}}</p>
-    <p class="">{{model.twitter}}</p>
-    <p>{{link-to "Lend Article" "loans.new"}}</p>
-    <p class="">{{link-to "Edit Info" "friends.edit" model}}</p>
-    <p class=""><a href="#" {{action "delete" model}}>Delete</a></p>
+    <div>
+      <p>{{model.fullName}}</p>
+      <p>{{model.email}}</p>
+      <p>{{model.twitter}}</p>
+      <ul class="friend-profile-links">
+        <li>{{link-to 'Edit info' 'friends.edit' model}}</li>
+        <li>{{link-to 'Lend article' 'articles.new'}}</li>
+        <li><a href="#" {{action "delete" model}}>Delete</a></li>
+      </ul>
+    </div>
   </div>
+</div>
 
-  <div class="flex-auto ml1 loans-container">
-    {{outlet}}
-  </div>
+<div class="loans-container">
+  {{outlet}}
 </div>
